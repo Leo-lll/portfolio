@@ -1,7 +1,11 @@
-body { 
-  margin: 0; 
-  background: #000; 
-  overflow-x: hidden; 
+:root {
+  --header-h: 30px; 
+}
+
+body {
+  margin: 0;
+  background: #000;
+  overflow-x: hidden;
 }
 
 .intro-sequence {
@@ -17,13 +21,12 @@ body {
   flex-direction: column;
   height: 100vh;
   /* Marge de 3px UNIQUEMENT entre les lignes */
-  gap: 3px; 
+  gap: 3px;
 }
-
 .row {
   width: 100%;
   /* On ajuste la hauteur pour déduire les 2 gaps de 3px (6px total) */
-  height: calc((100vh - 6px) / 3); 
+  height: calc((100vh - 6px) / 3);
   flex-shrink: 0;
   overflow: hidden;
   display: flex;
@@ -31,9 +34,13 @@ body {
 
 .row-content {
   display: flex;
+
   height: 100%;
+
   /* ON SUPPRIME LE GAP ICI pour coller les colonnes */
-  gap: 0; 
+
+  gap: 0;
+
   will-change: transform;
 }
 
@@ -44,7 +51,75 @@ body {
   flex-shrink: 0;
 }
 
-.row-3 { 
-  z-index: 10; 
-  background: #000; 
+.row-3 {
+  z-index: 10;
+  background: #000;
+}
+
+.header-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--header-h);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  padding: 0 40px;
+  color: #fff;
+  font-family: "Orbitron", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  /* EFFET DE DISTORSION ESTHER-K */
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.03) 50%,
+    rgba(0, 0, 0, 0.05) 100%
+  );
+
+  /* On appelle l'ID du nouveau filtre */
+  backdrop-filter: url(#glass-distortion);
+  -webkit-backdrop-filter: url(#glass-distortion);
+  /* On garde ton masque pour l'évanescence vers le bas */
+  mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+}
+
+.header-content {
+  display: grid;
+  height: 30px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  width: 100%;
+}
+
+.nav-item {
+  text-decoration: none; /* Enlever le soulignement des liens */
+  color: #fff;
+  display: flex;
+  align-items: center; /* Centrage vertical */
+  justify-content: center; /* Centrage horizontal */
+  text-align: center;
+  transition: opacity 0.3s ease;
+}
+
+.nav-item:first-child {
+  justify-content: flex-start;
+}
+
+.row-black {
+  height: 30px !important;
+  background: #000;
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.row:not(.row-black) {
+  width: 100%;
+  /* 100vh - 50px (barre) - 9px (3 gaps de 3px) / 3 lignes */
+  height: calc((100vh - 30px - 9px) / 3); 
+  flex-shrink: 0;
+  overflow: hidden;
+  display: flex;
 }

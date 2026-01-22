@@ -9,25 +9,48 @@
   </head>
     
   <body>
-  <section class="intro-sequence">
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <defs>
+    <filter id="glass-distortion">
+      <feTurbulence type="fractalNoise" baseFrequency="0.015" numOctaves="3" result="noise" />
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="40" xChannelSelector="R" yChannelSelector="G" />
+      <feGaussianBlur stdDeviation="1" />
+    </filter>
+  </defs>
+</svg>
+
+<header class="header-overlay">
+  <nav class="header-content">
+    <a href="index.html" class="nav-item">LEO LEVY - ARCHITECTE D.E.</a>
+    <a href="expertise.html" class="nav-item">PORTFOLIO</a>
+    <a href="portfolio.html" class="nav-item">CV</a>
+    <a href="contact.html" class="nav-item">GALERIE</a>
+  </nav>
+  <div class="grain-texture"></div>
+</header>
+
+<section class="intro-sequence">
   <div class="grid-container">
+  <div class="row row-black"></div>
     <div class="row row-1">
       <div class="row-content">
-        <img class="img-2"> 
-        <img class="img-3"> 
-        <img class="img-4"> 
+        <img class="img-2">
+        <img class="img-3">
+        <img class="img-4">
         <img class="img-5">
       </div>
     </div>
+
     <div class="row row-2">
       <div class="row-content">
-        <img class="img-3"> 
-        <img class="img-4"> 
-        <img class="img-5"> 
-        <img class="img-6"> 
+        <img class="img-3">
+        <img class="img-4">
+        <img class="img-5">
+        <img class="img-6">
         <img class="img-1">
       </div>
     </div>
+
     <div class="row row-3">
       <div class="row-content" id="portfolio-row">
         <img class="img-5">
