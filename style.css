@@ -1,0 +1,50 @@
+body { 
+  margin: 0; 
+  background: #000; 
+  overflow-x: hidden; 
+}
+
+.intro-sequence {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  overflow: hidden;
+}
+
+.grid-container {
+  display: flex;
+  background: white;
+  flex-direction: column;
+  height: 100vh;
+  /* Marge de 3px UNIQUEMENT entre les lignes */
+  gap: 3px; 
+}
+
+.row {
+  width: 100%;
+  /* On ajuste la hauteur pour déduire les 2 gaps de 3px (6px total) */
+  height: calc((100vh - 6px) / 3); 
+  flex-shrink: 0;
+  overflow: hidden;
+  display: flex;
+}
+
+.row-content {
+  display: flex;
+  height: 100%;
+  /* ON SUPPRIME LE GAP ICI pour coller les colonnes */
+  gap: 0; 
+  will-change: transform;
+}
+
+.row img {
+  height: 100%;
+  width: auto;
+  display: block;
+  flex-shrink: 0;
+}
+
+.row-3 { 
+  z-index: 10; 
+  background: #000; 
+}
